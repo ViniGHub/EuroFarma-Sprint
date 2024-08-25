@@ -1,0 +1,56 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.home {
+    width: 100%;
+    height: 100vh;
+    background-color: #D9D9D9;
+}
+
+.home__header {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #34C5E4;
+    padding: 20px 10px;
+    width: 100%;
+    height: 70px;
+}
+
+.logo__matamba {
+    height: 60px;
+    margin: 0 20px;
+}
+
+.header__right {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.header__right>.user__section a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.header__right img {
+    mix-blend-mode: color-burn;
+    width: 30px;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}
