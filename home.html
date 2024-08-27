@@ -61,5 +61,15 @@
         <div></div>
       </main>
     </div>
+
+    <script defer>
+      const search = document.querySelector(".search__library");
+      search.addEventListener("keyup", (KeyBoardEvent) => {
+        if (KeyBoardEvent.code === "Enter") {
+          // Redirecionar para a página de busca com a query digitada
+        window.location.href = `./biblioteca.html?search=${search.value}`;
+        }
+      });
+    </script>
   </body>
 </html>

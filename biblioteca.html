@@ -118,5 +118,12 @@
         </section>
       </main>
     </div>
+
+    <script defer>
+      const urlParams = new URLSearchParams(window.location.search);
+      const search = document.querySelector(".search__library");
+      const searchValue = urlParams.get("search");
+      search.value = searchValue;
+    </script>
   </body>
 </html>
