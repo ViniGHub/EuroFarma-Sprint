@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eurofoda</title>
+
+  <link rel="stylesheet" href="css/exercicio.css">
+  <link rel="stylesheet" href="./css/master.css" />
+</head>
+<div class="home">
+  <header class="home__header">
+    <a href="./home.html">
+      <img class="logo__matamba" src="./img/matamba_logo.png" alt="Logo Matamba" />
+    </a>
+
+    <div class="header__right">
+      <a href="./trilha.html">Treinamentos</a>
+      <a href="./biblioteca.html">Biblioteca</a>
+      <div class="user__section">
+        <a href="#">
+          <img src="./img/icone_user.png" alt="imagem minificada do perfil do usuario" />
+          <label for="">Faça seu login</label>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="top__section">
+    <a href="./trilha.html" class="button-voltar">
+      Voltar
+    </a>
+    <h1 id="content-title"></h1>
+  </div>
+  <div class="Quiz">
+  <main>
+    
+    <h2>QUIZ DA RAPAZIADA</h2>
+
+    <div class="content">
+      <span class="spnQtd"></span>
+      <span class="question"></span>
+      <div class="answers"></div>
+    </div>
+    <div class="finish">
+      <span></span>
+      <button>Reiniciar</button>
+    </div>
+  
+  </main>
+  
+  <script defer>
+    const urlParams = new URLSearchParams(window.location.search);
+    const content = urlParams.get('content');
+    const contentTitle = document.getElementById('content-title');
+    contentTitle.textContent = `Exercicio ${content}`;
+  </script>
+    <script src="js/script.js" type="module"></script>
+  </body>
+
+ 
+</html>
