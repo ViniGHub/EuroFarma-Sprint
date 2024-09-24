@@ -1,0 +1,40 @@
+.main {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   height: 100%;
+}
+
+.exercise__section {
+   width: 100%;
+   min-height: 100%;
+}
+
+.top__section {
+   width: 100%;
+   padding: 100px 75px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.top__section h1 {
+   color: #00358E;
+   font-size: 50px;
+   margin-right: 60px;
+}
+
+.button-voltar {
+   background-color: #00358E;
+   color: white;
+   width: 14.438rem;
+   height: 3.75rem;
+   border: 0;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 5px;
+   margin: 20px 0 0 100px;
+}
+
