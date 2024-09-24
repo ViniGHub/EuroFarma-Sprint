@@ -1,19 +1,120 @@
-.main {
+.Quiz {
    display: flex;
    align-items: center;
    justify-content: center;
+   height: 70%;
+   width: 100%; 
+}
+main {
+   display: flex;
    flex-direction: column;
-   height: 100%;
-}
+   height: 50%;
+   background-color: white;
+   padding: 70px;
+   border-radius: 50px;
+   width: 50%;
+   align-items: center;
+   justify-content: center;
 
-.exercise__section {
-   width: 100%;
-   min-height: 100%;
-}
+ }
 
-.top__section {
+ .search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+ }
+ 
+ .logo__eurofarma {
+    width: 60%;
+ }
+ 
+ .search__library {
+    width: 65%;
+    height: 75px;
+    padding: 0 40px;
+    border-radius: 50px;
+    font-size: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.26);
+ }
+ 
+ .search__library::placeholder {
+    color: rgba(0, 0, 0, 0.26);
+ }
+ 
+ .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px 170px;
+    width: 100%;
+ }
+
+ 
+
+ .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 380px;
+    height: 85px;
+    border-radius: 50px;
+    font-size: 50px;
+    color: white;
+    background-color: #34C5E4;
+    border: none;
+ }
+ 
+ .left {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.26);
+ }
+ 
+ .right {
+    box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.26);
+ }
+
+ .content {
+   display: flex;
+   flex-direction: column;
    width: 100%;
-   padding: 100px 75px;
+   gap: 10px;
+ }
+ 
+ .spnQtd {
+   text-align: end;
+ }
+ 
+ .answers {
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+ }
+ 
+ button {
+   width: 100%;
+   text-align: start;
+   padding: 5px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   background-color: #008CCC;
+   color: white;
+ }
+ 
+ .finish {
+   display: none;
+   flex-direction: column;
+   gap: 10px;
+ }
+ 
+ .finish button {
+   text-align: center;
+ }
+
+ .top__section {
+   width: 100%;
+   padding: 100px 50px 0px 50px ;
    display: flex;
    align-items: center;
    justify-content: space-between;
@@ -35,6 +136,5 @@
    align-items: center;
    justify-content: center;
    border-radius: 5px;
-   margin: 20px 0 0 100px;
+   margin: 0;
 }
-
