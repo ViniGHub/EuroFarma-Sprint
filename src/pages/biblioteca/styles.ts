@@ -1,8 +1,10 @@
-main{
-    display: flex;
-}
+import styled from "styled-components";
 
-.filters_section{
+export const MainContainer = styled.div `
+    display: flex;
+`
+
+export const FiltersSection = styled.div `
     width: 20%;
     height: 100vh;
 
@@ -13,16 +15,16 @@ main{
     padding-right: 25px;
 
     border-right: 2px solid rgba(128, 117, 117, 1);
-}
 
-.filters_section h1{
-    font-size: 35px;
-    font-weight: 600;
+    h1 {
+        font-size: 35px;
+        font-weight: 600;
 
-    border-bottom: 1px solid black;
-}
+        border-bottom: 1px solid black;
+    }
+`
 
-.filter_inputs{
+export const FilterInputs = styled.div `
     display: flex;
     flex-direction: column;
     align-items:start;
@@ -30,18 +32,18 @@ main{
 
     margin-top: 30px;
     margin-left: 20px;
-}
+`
 
-.filter_container{
+export const FilterContainer = styled.div `
     font-weight: 500;
     font-size: 22px;
-}
 
-.filter_container input{
-    margin-right: 10px;
-}
+    input {
+        margin-right: 10px;
+    }
+`
 
-.library{
+export const Library = styled.div `
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,46 +54,43 @@ main{
     gap: 40px;
 
     width: 100%;
-}
+`
 
-.search_and_pages{
+export const SearchPages = styled.div `
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     width: 60%;
-}
 
-.paging{
+    input {
+        width: 40%;
+        height: 45px;
+        padding: 0 40px;
+        border-radius: 50px;
+        font-size: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.26);
+    }
+`
+
+export const Paging = styled.div `
     display: flex;
     gap: 15px;
-}
 
-.paging div{
-    padding: 10px 20px;
-    border-radius: 10px;
+    div {
+        padding: 10px 20px;
+        border-radius: 10px;
 
-    background-color: rgba(128, 117, 117, 0.37);
-}
-.paging div a{
-    text-decoration: none;
-    color: black;
-}
+        background-color: rgba(128, 117, 117, 0.37);
+    }
 
-.search__library {
-    width: 40%;
-    height: 45px;
-    padding: 0 40px;
-    border-radius: 50px;
-    font-size: 20px;
-    border: 1px solid rgba(0, 0, 0, 0.26);
- }
- 
- .search__library::placeholder {
-    color: rgba(0, 0, 0, 0.26);
- }
+    div a {
+        text-decoration: none;
+        color: black;
+    }
+`
 
-.library_containers{
+export const LibraryContainer = styled.div `
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -100,14 +99,9 @@ main{
     max-width: 90%;
 
     gap: 100px;
-}
+`
 
-.library h1{
-    font-size: 60px;
-    color: rgba(0, 53, 142, 1);
-}
-
-.content_container{
+export const ContentContainer = styled.div `
     width: 300px;
     height: 250px;
     border: 3px solid rgba(52, 197, 228, 1);
@@ -118,11 +112,12 @@ main{
     align-items: center;
     justify-content: center;
     gap: 10px;
-}
+`
 
-.content_container .test_img{
+export const TestImage = styled.div `
     width: 120px;
     height: 100px;
 
     background-color: gray;
-}
+`
+

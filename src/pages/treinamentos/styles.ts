@@ -1,27 +1,30 @@
-main {
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+export const MainContainner = styled.main `
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
-}
+`
 
-.top-section {
+export const TopSection = styled.div `
     margin-top: 100px;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-}
 
-.top-section h1 {
-    color: #00358E;
-    font-size: 50px;
-    margin-right: 60px;
-}
+    h1 {
+        color: #00358E;
+        font-size: 50px;
+        margin-right: 60px;
+    }
+`
 
-.button-voltar {
+export const LinkVoltar = styled(Link) `
     background-color: #00358E;
     color: white;
     width: 14.438rem;
@@ -32,9 +35,9 @@ main {
     justify-content: center;
     border-radius: 5px;
     margin: 20px 0 0 100px;
-}
+`
 
-.cards-up {
+export const CardsUp = styled.div `
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -43,9 +46,9 @@ main {
     width: 100%;
     flex-wrap: wrap;
     gap: 40px;
-}
+`
 
-.cards-down {
+export const CardsDown = styled.div `
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -54,28 +57,9 @@ main {
     width: 100%;
     flex-wrap: wrap;
     gap: 40px;
-}
+`
 
-.card {
-    background-color: #34C5E4;
-    color: white;
-    height: 17.313rem;
-    width: 25%;
-
-    border: 0;
-    border-radius: 15px;
-    
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-
-    gap: 90px;
-
-
-}
-
-.card-button {
+export const CardButton = styled.button `
     width: 50%;
     height: 3.75rem;
     margin: 0 auto;
@@ -84,56 +68,61 @@ main {
     
     color: white;
     background-color: #00358E;
-}
-
-/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
-.flip-card {
+`
+    
+export const FlipCard = styled.div `
     background-color: transparent;
     width: 300px;
     height: 200px;
     border: 1px solid #f1f1f1;
-    perspective: 1000px; /* Remove this if you don't want the 3D effect */
-  }
-  
-  /* This container is needed to position the front and back side */
-  .flip-card-inner {
-    position: relative;
+    perspective: 1000px;
+`
+
+export const FlipCardInner = styled.div `
+     position: relative;
     width: 100%;
     height: 100%;
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-  }
-  
-  /* Do an horizontal flip when you move the mouse over the flip box container */
-  .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-  
-  /* Position the front and back side */
-  .flip-card-front, .flip-card-back {
+
+    &:hover{
+        transform: rotateY(180deg);
+    }
+`
+
+export const FlipCardFront = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    -webkit-backface-visibility: hidden; /* Safari */
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-  }
-  
-  /* Style the front side (fallback if image is missing) */
-  .flip-card-front {
+
+    text-align: center;
+    padding: 30px;
+    background-color: dodgerblue;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+`;
+
+export const FlipCardBack = styled.div`
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #bbb;
     color: black;
-  }
-  
-  /* Style the back side */
-  .flip-card-back {
-    text-align: center;
-    padding: 30px;
-    background-color: dodgerblue;
-    color: white;
+
     transform: rotateY(180deg);
-  }
+`;
