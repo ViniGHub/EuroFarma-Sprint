@@ -48,3 +48,9 @@ export default tseslint.config({
   },
 })
 ```
+
+
+Para executar o serviço da api basta acessar a pasta EuroTambaAPI e executar os comandos:
+
+- docker build -t eurotamba .
+- docker run -d --name eurotamba -p 3000:3000 eurotamba
