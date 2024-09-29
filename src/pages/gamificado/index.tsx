@@ -1,102 +1,89 @@
-import { useEffect, useState } from "react";
-import { Container, OfficeImage, ObjectButton, DragArea, TaskDescription, TaskProgress } from "./styles"; // Você pode adicionar suas imagens no arquivo de estilos.
-
-const tasks = [
+import React, { useState } from "react";
+import { Container, CustomerImage, ChatBox, ResponseButton, SatisfactionBar } from "./styles"; // Você pode adicionar suas imagens no arquivo de estilos.
+import Vini from '../../assets/Vini.jpeg'
+import Kaua from '../../assets/Kaua.jpeg'
+const scenarios = [
   {
     id: 1,
-    description: "Ligue o computador clicando no botão de 'power'.",
-    image: "../../assets/comput.jpg", 
-    action: "powerOn",
-    completed: false,
+    customer: {
+      name: "Juliuz Carvalho",
+      issue: "Ela está insatisfeita com um produto que chegou com defeito.",
+      image: Vini, 
+    },
+    responses: [
+      { text: "Peço desculpas pelo ocorrido, vamos enviar um novo produto.", impact: 10 },
+      { text: "Você pode devolver, mas o processo pode demorar.", impact: -5 },
+      { text: "Não é possível fazer a troca, você deve entrar em contato com o fabricante.", impact: -10 },
+    ],
   },
   {
     id: 2,
-    description: "Arraste os documentos para a pasta 'Treinamento'.",
-    image: "../../assets/Documentos.jpeg", // Imagem de documentos
-    action: "organizeFiles",
-    completed: false,
+    customer: {
+      name: "Edemilson",
+      issue: "Ele quer saber mais sobre um produto antes de comprar.",
+      image: Kaua, 
+    },
+    responses: [
+      { text: "Claro, vou te passar todos os detalhes agora!", impact: 10 },
+      { text: "Você pode verificar todas as informações no site.", impact: 0 },
+      { text: "Desculpe, não sei muito sobre esse produto.", impact: -10 },
+    ],
   },
-  {
-    id: 3,
-    description: "Envie um e-mail clicando no ícone de e-mail.",
-    image: "../../assets/Icone_Email.jpeg", // Imagem de um ícone de e-mail
-    action: "sendEmail",
-    completed: false,
-  },
+  
 ];
 
-export function MissaoCorporativa() {
-  const [currentTaskIndex, setCurrentTaskIndex] = useState(0);
-  const [computerOn, setComputerOn] = useState(false);
-  const [documentsOrganized, setDocumentsOrganized] = useState(false);
-  const [emailSent, setEmailSent] = useState(false);
+export function SimuladorCliente() {
+  const [currentScenarioIndex, setCurrentScenarioIndex] = useState(0);
+  const [satisfaction, setSatisfaction] = useState(50); 
+  const [finished, setFinished] = useState(false);
 
-  const handleAction = (action: string) => {
-    if (action === "powerOn") {
-      setComputerOn(true);
-      setCurrentTaskIndex((prev) => prev + 1);
-    } else if (action === "organizeFiles" && computerOn) {
-      setDocumentsOrganized(true);
-      setCurrentTaskIndex((prev) => prev + 1);
-    } else if (action === "sendEmail" && documentsOrganized) {
-      setEmailSent(true);
-      setCurrentTaskIndex((prev) => prev + 1);
+  const handleResponse = (impact: number) => {
+    setSatisfaction((prev) => Math.max(0, Math.min(100, prev + impact))); 
+
+    if (currentScenarioIndex < scenarios.length - 1) {
+      setCurrentScenarioIndex((prev) => prev + 1);
+    } else {
+      setFinished(true); 
     }
+  };
+
+  const restartGame = () => {
+    setCurrentScenarioIndex(0);
+    setSatisfaction(50);
+    setFinished(false);
   };
 
   return (
     <Container>
-      <h1>Missão Corporativa - Gamificação</h1>
+      <h1>Simulador de Interação com Clientes</h1>
 
-      {/* Exibir progresso da tarefa */}
-      <TaskProgress>
-        <span>Tarefa {currentTaskIndex + 1} de {tasks.length}</span>
-      </TaskProgress>
+      {/* Mostra a barra de satisfação */}
+      <SatisfactionBar>
+        <div style={{ width: `${satisfaction}%` }}></div>
+        <span>Satisfação: {satisfaction}%</span>
+      </SatisfactionBar>
 
-      {/* Descrição da Tarefa */}
-      <TaskDescription>
-        <p>{tasks[currentTaskIndex].description}</p>
-      </TaskDescription>
+      {/* Exibe o cenário atual */}
+      {!finished ? (
+        <>
+          <CustomerImage src={scenarios[currentScenarioIndex].customer.image} alt={scenarios[currentScenarioIndex].customer.name} />
+          <ChatBox>
+            <h2>{scenarios[currentScenarioIndex].customer.name}</h2>
+            <p>{scenarios[currentScenarioIndex].customer.issue}</p>
 
-      {/* Imagem do Escritório */}
-      <OfficeImage src="../../assets/Escritorio.jpeg" alt="Escritório" />
-
-      {/* Objetos Interativos */}
-      <div style={{ position: "relative" }}>
-        {/* Computador - Tarefa 1 */}
-        {currentTaskIndex === 0 && (
-          <ObjectButton
-            style={{ top: "50%", left: "30%" }} // Posicione conforme a imagem do escritório
-            onClick={() => handleAction("powerOn")}
-            disabled={computerOn}
-          >
-            <img src="/images/computer-button.png" alt="Computador" />
-          </ObjectButton>
-        )}
-
-        {/* Documentos - Tarefa 2 */}
-        {currentTaskIndex === 1 && (
-          <DragArea>
-            <img src="../../assets/Button_PC.jpeg" alt="Documentos" draggable onDragStart={() => handleAction("organizeFiles")} />
-          </DragArea>
-        )}
-
-        {/* E-mail - Tarefa 3 */}
-        {currentTaskIndex === 2 && (
-          <ObjectButton
-            style={{ top: "70%", left: "60%" }} // Posicione conforme a imagem do escritório
-            onClick={() => handleAction("sendEmail")}
-            disabled={emailSent}
-          >
-            <img src="../../assets/Icone_Email.jpeg" alt="Enviar E-mail" />
-          </ObjectButton>
-        )}
-      </div>
-
-      {/* Mensagem de conclusão */}
-      {currentTaskIndex === tasks.length && (
+            {}
+            {scenarios[currentScenarioIndex].responses.map((response, index) => (
+              <ResponseButton key={index} onClick={() => handleResponse(response.impact)}>
+                {response.text}
+              </ResponseButton>
+            ))}
+          </ChatBox>
+        </>
+      ) : (
         <div>
-          <h2>Parabéns! Você concluiu todas as tarefas e agora conhece melhor a empresa.</h2>
+          <h2>Jogo Concluído!</h2>
+          <p>Você terminou com uma satisfação de {satisfaction}%.</p>
+          <button onClick={restartGame}>Reiniciar</button>
         </div>
       )}
     </Container>

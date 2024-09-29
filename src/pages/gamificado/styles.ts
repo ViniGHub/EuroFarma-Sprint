@@ -6,38 +6,57 @@ export const Container = styled.div`
   padding: 20px;
 `;
 
-export const TaskProgress = styled.div`
+export const CustomerImage = styled.img`
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
   margin-bottom: 20px;
-  font-size: 18px;
-  font-weight: bold;
 `;
 
-export const TaskDescription = styled.div`
-  margin-bottom: 20px;
+export const ChatBox = styled.div`
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 20px;
+  width: 80%;
+  margin: 0 auto;
+`;
+
+export const ResponseButton = styled.button`
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
   font-size: 16px;
-`;
-
-export const OfficeImage = styled.img`
-  width: 100%;
-  max-width: 800px;
-  margin-bottom: 20px;
-`;
-
-export const ObjectButton = styled.button`
-  background: transparent;
+  cursor: pointer;
+  background-color: #00358E;
+  color: white;
   border: none;
-  cursor: pointer;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: #45a049;
+  }
 `;
 
-export const DragArea = styled.div`
-  width: 100px;
-  height: 100px;
-  background-color: #f0f0f0;
-  border: 2px dashed #ccc;
-  margin: 20px auto;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
+export const SatisfactionBar = styled.div`
+  width: 100%;
+  background-color: #ddd;
+  height: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  position: relative;
+
+  div {
+    height: 100%;
+    background-color: #4caf50;
+    border-radius: 10px 0 0 10px;
+  }
+
+  span {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 0;
+    font-size: 14px;
+    color: #333;
+  }
 `;
