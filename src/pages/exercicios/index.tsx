@@ -6,6 +6,7 @@ export function Exercicio() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [questionsCorrect, setQuestionsCorrect] = useState(0);
     const [finished, setFinished] = useState(false);
+    const [xp, setXp] = useState(0); 
 
     const loadQuestion = () => {
       setFinished(false);
@@ -14,6 +15,7 @@ export function Exercicio() {
     const handleAnswer = (correct: boolean) => {
       if (correct) {
         setQuestionsCorrect((prev) => prev + 1);
+        setXp((prevXp) => prevXp + 15); 
       }
       if (currentIndex < questions.length - 1) {
         setCurrentIndex((prev) => prev + 1);
@@ -25,6 +27,7 @@ export function Exercicio() {
     const restartQuiz = () => {
       setCurrentIndex(0);
       setQuestionsCorrect(0);
+      setXp(0); 
       setFinished(false);
     };
 
@@ -57,11 +60,11 @@ export function Exercicio() {
             </>
           ) : (
             <FinishContainer className="show">
-              <span>Você acertou {questionsCorrect} de {questions.length}</span>
+              <span>Você acertou {questionsCorrect} de {questions.length} e ganhou {xp} XP!</span> 
               <Button onClick={restartQuiz}>Reiniciar</Button>
             </FinishContainer>
           )}
         </QuizContainer>
       </Container>
-  );
-};
+    );
+}

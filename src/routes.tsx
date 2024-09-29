@@ -6,6 +6,7 @@ import { Treinamentos } from './pages/treinamentos';
 import { Biblioteca } from './pages/biblioteca';
 import { Topicos } from './pages/topicos';
 import { Exercicio } from './pages/exercicios';
+import { MissaoCorporativa} from './pages/gamificado';
 
 const router = createBrowserRouter([
     {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
             {
                 path: "/exercicio/:id",
                 element: <Exercicio/>
+            },
+            {
+                path: "/gamificado",
+                element: <MissaoCorporativa/>
             }
         ]
     },
