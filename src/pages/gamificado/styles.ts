@@ -6,6 +6,18 @@ export const Container = styled.div`
   padding: 20px;
 `;
 
+export const button = styled.p `
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 380px;
+   height: 85px;
+   border-radius: 50px;
+   font-size: 50px;
+   color: white;
+   background-color: #34C5E4;
+   border: none;
+   `
 export const CustomerImage = styled.img`
   width: 150px;
   height: 150px;

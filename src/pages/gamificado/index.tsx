@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Container, CustomerImage, ChatBox, ResponseButton, SatisfactionBar } from "./styles"; // Você pode adicionar suas imagens no arquivo de estilos.
 import Vini from '../../assets/Vini.jpeg'
 import Kaua from '../../assets/Kaua.jpeg'
+import Viana from '../../assets/Viana.jpeg'
+import Lucas from '../../assets/Lucas.jpeg'
 const scenarios = [
   {
     id: 1,
@@ -29,7 +31,32 @@ const scenarios = [
       { text: "Desculpe, não sei muito sobre esse produto.", impact: -10 },
     ],
   },
-  
+  {
+    id: 3,
+    customer: {
+      name: "Lucas",
+      issue: " Ele está chateado porque o atendimento demorou muito tempo para responder sua solicitação.",
+      image: Lucas, 
+    },
+    responses: [
+      { text: "Peço desculpas pela demora, vou resolver sua solicitação agora mesmo!", impact: 10 },
+    { text: "Estamos muito ocupados, você terá que aguardar um pouco mais.", impact: -5 },
+    { text: "Infelizmente, isso acontece às vezes. Não podemos fazer nada.", impact: -10 },
+    ],
+  },
+  {
+    id: 4 ,
+    customer: {
+      name: "Viana",
+      issue: "Ela quer cancelar uma assinatura e está com dificuldades no site.",
+      image: Viana, 
+    },
+    responses: [
+      { text: "Posso te ajudar com o cancelamento agora mesmo.", impact: 10 },
+    { text: "Você precisa tentar de novo mais tarde, pode ser que funcione.", impact: -5 },
+    { text: "Cancele por conta própria, não podemos fazer isso por você.", impact: -10 },
+    ],
+  },
 ];
 
 export function SimuladorCliente() {
