@@ -13,6 +13,7 @@ export function Home() {
               <SearchLibrary
                 type="text"
                 placeholder="Buscar na biblioteca..."
+                onKeyDown={(e) => console.log(e.currentTarget.value)}
               />
 
             </SearchSection>

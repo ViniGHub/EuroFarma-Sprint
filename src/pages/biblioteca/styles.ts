@@ -7,6 +7,7 @@ export const MainContainer = styled.div `
 export const FiltersSection = styled.div `
     width: 20%;
     height: 100vh;
+    position: relative;
 
     background-color: rgba(128, 117, 117, 0.37);
 
@@ -22,6 +23,11 @@ export const FiltersSection = styled.div `
 
         border-bottom: 1px solid black;
     }
+    h2 {
+        font-size: 25px;
+        font-weight: 200;
+        margin-top: 30px;
+    }
 `
 
 export const FilterInputs = styled.div `
@@ -30,7 +36,7 @@ export const FilterInputs = styled.div `
     align-items:start;
     gap: 12px;
 
-    margin-top: 30px;
+    margin-top: 10px;
     margin-left: 20px;
 `
 
@@ -77,16 +83,12 @@ export const Paging = styled.div `
     display: flex;
     gap: 15px;
 
-    div {
+    button {
         padding: 10px 20px;
         border-radius: 10px;
 
         background-color: rgba(128, 117, 117, 0.37);
-    }
-
-    div a {
-        text-decoration: none;
-        color: black;
+        border-color: seashell;
     }
 `
 
