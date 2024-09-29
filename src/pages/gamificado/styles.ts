@@ -44,6 +44,7 @@ export const SatisfactionBar = styled.div`
   border-radius: 10px;
   margin-bottom: 20px;
   position: relative;
+  display: flex;
 
   div {
     height: 100%;
