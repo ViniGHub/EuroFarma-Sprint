@@ -49,7 +49,7 @@ export function Topicos() {
             <a href="/exercicio/1">Exercício 1</a>
           </li>
           <li>
-            <a href="/exercicio/2">Exercício 2</a>
+            <a href="/gamificado">Exercício 2</a>
           </li>
           <li>
             <a href="/exercicio/3">Exercício 3</a>
