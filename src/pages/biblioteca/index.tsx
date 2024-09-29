@@ -15,6 +15,7 @@ import pdfIcon from "../../assets/icons/pdf.png"; // Importa os ícones
 import docxIcon from "../../assets/icons/docx.png";
 import xlsxIcon from "../../assets/icons/xlsx.png";
 import pptxIcon from "../../assets/icons/pptx.png";
+import { useSearchParams } from "react-router-dom";
 
 type FileType = "pdf" | "docx" | "xlsx" | "pptx";
 
@@ -43,6 +44,7 @@ export function Biblioteca() {
   const [searchQuery, setSearchQuery] = useState<string>(""); // Estado para armazenar a busca
   const [currentPage, setCurrentPage] = useState<number>(1); // Estado para armazenar a página atual
   const filesPerPage = 6; // Número de arquivos por página
+  const [searchParams] = useSearchParams();
 
   // Busca os arquivos do backend
   useEffect(() => {
@@ -56,6 +58,7 @@ export function Biblioteca() {
         });
         setFilteredFiles(response.data);
         setFiles(response.data);
+        setSearchQuery(searchParams.get("search") || ""); // Atualiza a busca com o parâmetro da URL
       } catch (error) {
         console.error("Erro ao buscar os arquivos:", error);
       }
@@ -159,7 +162,7 @@ export function Biblioteca() {
       <Library>
         <h1>Biblioteca</h1>
         <SearchPages>
-          <input type="text" placeholder="Buscar na biblioteca..." onChange={handleSearchChange} />
+          <input type="text" value={searchQuery} placeholder="Buscar na biblioteca..." onChange={handleSearchChange} />
           <Paging>
               <button onClick={() => paginate("back")} disabled={currentPage === 1}>
                 Anterior

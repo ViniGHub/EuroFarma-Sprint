@@ -28,6 +28,10 @@ const router = createBrowserRouter([
                 element: <Biblioteca/>
             },
             {
+                path: "/biblioteca/?search=:search",
+                element: <Biblioteca/>
+            },
+            {
                 path: "/topicos/:id",
                 element: <Topicos/>
             },
